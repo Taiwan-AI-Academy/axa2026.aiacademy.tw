@@ -85,13 +85,7 @@
     }
     .hero-text {}
     .hero-overline {
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      color: var(--terracotta);
-      text-transform: uppercase;
-      margin-bottom: 16px;
+      display: none;
     }
     .hero-title {
       font-family: Georgia, serif;
@@ -141,16 +135,6 @@
       font-size: 14px;
       line-height: 1.7;
     }
-    .hero-image-wrap {
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: rgba(0,0,0,0.08) 0 8px 32px;
-    }
-    .hero-image-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
 
     /* ─── Divider ─────────────────────────────────── */
     .divider {
@@ -174,13 +158,7 @@
       margin: 0 auto;
     }
     .section-label {
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--warm-silver);
-      margin-bottom: 16px;
+      display: none;
     }
     .timeline-heading {
       font-family: Georgia, serif;
@@ -312,15 +290,6 @@
     }
     .lined-paper-body {
       padding: 0 40px 40px;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent calc(2.4em - 1px),
-        #e8e6dc calc(2.4em - 1px),
-        #e8e6dc 2.4em
-      );
-      background-size: 100% 2.4em;
-      line-height: 2.4em;
     }
     .lined-paper-body .pdf-item {
       display: flex;
@@ -407,11 +376,24 @@
       text-align: center;
     }
     .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-logo { height: 28px; width: auto; margin-bottom: 16px; }
+    .footer-logo { height: 56px; width: auto; margin-bottom: 16px; }
     .footer-text {
       font-family: Arial, sans-serif;
       font-size: 13px;
       color: var(--stone-gray);
+    }
+
+    /* ─── Demo Showcase 兩欄並排 ─────────────────── */
+    .timeline-group-showcase .timeline-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 32px;
+    }
+    .timeline-group-showcase .timeline-item {
+      border-top: 1px solid var(--dark-surface);
+    }
+    .timeline-group-showcase .timeline-item:last-child {
+      border-bottom: 1px solid var(--dark-surface);
     }
 
     /* ─── Responsive ─────────────────────────────── */
@@ -421,12 +403,14 @@
         gap: 40px;
         padding: 48px 20px 40px;
       }
-      .hero-image-wrap { order: -1; }
       .timeline-section { padding: 64px 20px; }
       .pdf-section { padding: 64px 20px; }
       .lined-paper-header,
       .lined-paper-body { padding-left: 20px; padding-right: 20px; }
       .nav-inner { padding: 0 20px; }
+      .timeline-group-showcase .timeline-items {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -449,15 +433,12 @@
       <p class="hero-overline">AIA x Claude Code</p>
       <h1 class="hero-title">
         Call for<br>
-        <span class="accent typewriter-wrap" id="typewriter"></span><span class="cursor" id="cursor"></span>
+        <span class="accent typewriter-wrap" id="typewriter-show"></span><span id="typewriter-cases" style="color:var(--near-black)"></span><span class="cursor" id="cursor"></span>
       </h1>
       <ul class="hero-bullets">
         <li>本計畫旨在發掘台灣最具潛力的 Claude Code 應用案例，入選團隊將有機會為原廠與開發者社群大會展示。</li>
         <li>主辦單位審核同意後，會發送確認信與手機短訊，請留意訊息。</li>
       </ul>
-    </div>
-    <div class="hero-image-wrap">
-      <img src="image.png" alt="Call for Showcases" />
     </div>
   </section>
 
@@ -501,7 +482,7 @@
         </div>
       </div>
 
-      <div class="timeline-group">
+      <div class="timeline-group timeline-group-showcase">
         <h3 class="timeline-group-title">AIA Claude Code: Demo Showcase</h3>
         <div class="timeline-items">
           <div class="timeline-item">
@@ -546,17 +527,14 @@
       </div>
       <div class="lined-paper-body">
         <div class="pdf-item">
-          <span class="pdf-item-num">第 1 頁</span>
           <h3 class="pdf-item-title">團隊自介</h3>
           <p class="pdf-item-desc">背景與技術。介紹您的團隊組成、專業背景，以及擁有的核心技術能力。</p>
         </div>
         <div class="pdf-item">
-          <span class="pdf-item-num">第 2 頁</span>
           <h3 class="pdf-item-title">應用方案</h3>
           <p class="pdf-item-desc">Claude Code 應用場景、痛點、流程與架構方法。說明您如何利用 Claude Code 解決真實問題。</p>
         </div>
         <div class="pdf-item">
-          <span class="pdf-item-num">第 3 頁</span>
           <h3 class="pdf-item-title">應用價值</h3>
           <p class="pdf-item-desc">對組織內或組織外產生效益的量化與質化指標。展示可衡量的成果與潛在影響力。</p>
         </div>
@@ -587,24 +565,27 @@
 
   <script>
     // ── Typewriter on scroll-into-view ──────────────────
-    const target = document.getElementById('typewriter');
+    const showEl = document.getElementById('typewriter-show');
+    const casesEl = document.getElementById('typewriter-cases');
     const cursor = document.getElementById('cursor');
-    const fullText = 'Showcases';
+    const part1 = 'Show';
+    const part2 = 'cases';
     let typed = false;
 
     function runTypewriter() {
       if (typed) return;
       typed = true;
-      let i = 0;
-      target.textContent = '';
+      showEl.textContent = '';
+      casesEl.textContent = '';
       cursor.style.display = 'inline-block';
+      let i = 0;
+      const allChars = part1 + part2;
       const interval = setInterval(() => {
-        target.textContent += fullText[i];
+        const ch = allChars[i];
+        if (i < part1.length) { showEl.textContent += ch; }
+        else { casesEl.textContent += ch; }
         i++;
-        if (i >= fullText.length) {
-          clearInterval(interval);
-          // keep cursor blinking
-        }
+        if (i >= allChars.length) clearInterval(interval);
       }, 90);
     }
 
