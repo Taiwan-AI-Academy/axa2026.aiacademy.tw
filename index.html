@@ -24,9 +24,10 @@
       --border-warm: #e8e6dc;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
+      overflow-x: hidden;
       background-color: var(--parchment);
       color: var(--near-black);
       font-family: Georgia, serif;
@@ -52,8 +53,14 @@
       align-items: center;
       justify-content: space-between;
     }
-    .nav-logo {
+    .nav-logo-group {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
       height: 36px;
+    }
+    .nav-logo-group img {
+      height: 100%;
       width: auto;
     }
     .nav-cta {
@@ -94,7 +101,6 @@
       line-height: 1.1;
       color: var(--near-black);
       margin-bottom: 48px;
-      white-space: nowrap;
     }
     .hero-title .accent { color: var(--terracotta); }
 
@@ -380,8 +386,9 @@
       padding: 40px 32px;
       text-align: center;
     }
-    .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-logo { height: 56px; width: auto; margin-bottom: 16px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-group { display: flex; align-items: stretch; gap: 16px; margin-bottom: 16px; height: 56px; }
+    .footer-logo-group img { height: 100%; width: auto; }
     .footer-text {
       font-family: Arial, sans-serif;
       font-size: 13px;
@@ -477,11 +484,16 @@
         gap: 40px;
         padding: 48px 20px 40px;
       }
+      .hero-title {
+        font-size: clamp(48px, 14vw, 80px);
+      }
       .timeline-section { padding: 64px 20px; }
       .pdf-section { padding: 64px 20px; }
       .lined-paper-header,
       .lined-paper-body { padding-left: 20px; padding-right: 20px; }
       .nav-inner { padding: 0 20px; }
+      .nav-logo-group { flex-direction: column; align-items: flex-start; height: auto; gap: 8px; }
+      .nav-logo-group img { height: 22px; }
       .timeline-group-showcase .timeline-items {
         grid-template-columns: 1fr;
       }
@@ -493,7 +505,10 @@
   <!-- Nav -->
   <nav>
     <div class="nav-inner">
-      <img src="logo.png" alt="AIA x Claude Code" class="nav-logo" />
+      <div class="nav-logo-group">
+          <img src="img/logo-eng-horizon-black.svg" alt="AI Academy" />
+          <img src="img/Logo_Claude.svg" alt="Claude" />
+        </div>
       <a href="https://s.sted.tw/iuyYZg" class="nav-cta" target="_blank" rel="noopener">
         立即投稿
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M5 12h14m-7-7l7 7l-7 7"/></svg>
@@ -507,7 +522,7 @@
       <p class="hero-overline">AIA x Claude Code</p>
       <h1 class="hero-title">
         Call for<br>
-        <span class="accent typewriter-wrap" id="typewriter-show"></span><span id="typewriter-cases" style="color:var(--near-black)"></span><span class="cursor" id="cursor"></span>
+        <span class="accent typewriter-wrap" id="typewriter-show"></span><span style="white-space:nowrap"><span id="typewriter-cases" style="color:var(--near-black)"></span><span class="cursor" id="cursor"></span></span>
       </h1>
       <ul class="hero-bullets">
         <li>本計畫旨在發掘台灣最具潛力的 Claude Code 應用案例，入選團隊將有機會為原廠與開發者社群大會展示。</li>
@@ -632,7 +647,10 @@
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
-      <img src="logo.png" alt="AIA x Claude Code" class="footer-logo" />
+      <div class="footer-logo-group">
+        <img src="img/logo-eng-horizon-black.svg" alt="AI Academy" />
+        <img src="img/Logo_Claude.svg" alt="Claude" />
+      </div>
       <p class="footer-text">© 2025 台灣人工智慧學校 × Anthropic Claude Code. All rights reserved.</p>
     </div>
   </footer>
