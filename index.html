@@ -89,11 +89,12 @@
     }
     .hero-title {
       font-family: Georgia, serif;
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(36px, 9vw, 128px);
       font-weight: 500;
       line-height: 1.1;
       color: var(--near-black);
-      margin-bottom: 24px;
+      margin-bottom: 48px;
+      white-space: nowrap;
     }
     .hero-title .accent { color: var(--terracotta); }
 
@@ -257,6 +258,10 @@
       line-height: 1.6;
     }
 
+    /* Hide pdf text until typewriter starts */
+    .lined-paper .pdf-item-title,
+    .lined-paper .pdf-item-desc { opacity: 0; }
+
     /* Lined paper card */
     .lined-paper {
       background: var(--ivory);
@@ -393,7 +398,7 @@
       border-top: 1px solid var(--dark-surface);
     }
     .timeline-group-showcase .timeline-item:last-child {
-      border-bottom: 1px solid var(--dark-surface);
+      border-bottom: none;
     }
 
     /* ─── Entrance & Scroll Animations ───────────── */
@@ -427,6 +432,30 @@
     /* Nav scroll state */
     nav { transition: box-shadow 0.3s; }
     nav.scrolled { box-shadow: 0 1px 20px rgba(20, 20, 19, 0.08); }
+
+    /* Nav arrow wiggle on hover */
+    @keyframes arrowWiggle {
+      0%   { transform: translateX(0); }
+      20%  { transform: translateX(5px); }
+      45%  { transform: translateX(-2px); }
+      65%  { transform: translateX(4px); }
+      82%  { transform: translateX(-1px); }
+      100% { transform: translateX(0); }
+    }
+    .nav-cta:hover svg {
+      animation: arrowWiggle 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
+    }
+
+    /* CTA paper plane fly-out → fly-in */
+    @keyframes planeFly {
+      0%   { transform: translateX(0);     opacity: 1; }
+      42%  { transform: translateX(52px);  opacity: 0; }
+      43%  { transform: translateX(-52px); opacity: 0; }
+      100% { transform: translateX(0);     opacity: 1; }
+    }
+    .cta-btn:hover svg {
+      animation: planeFly 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
 
     /* Button press micro-interaction */
     .nav-cta:active { transform: scale(0.96); }
@@ -494,7 +523,7 @@
       <h2 class="timeline-heading">活動流程</h2>
 
       <div class="timeline-group">
-        <h3 class="timeline-group-title">AIA x Claude Code: Call for Showcases</h3>
+        <h3 class="timeline-group-title">Call for Showcases</h3>
         <div class="timeline-items">
           <div class="timeline-item">
             <div class="timeline-emoji">
@@ -528,7 +557,7 @@
       </div>
 
       <div class="timeline-group timeline-group-showcase">
-        <h3 class="timeline-group-title">AIA Claude Code: Demo Showcase</h3>
+        <h3 class="timeline-group-title">Demo Showcase</h3>
         <div class="timeline-items">
           <div class="timeline-item">
             <div class="timeline-emoji">
@@ -559,7 +588,7 @@
   <section class="pdf-section">
     <div class="pdf-section-header">
       <p class="section-label">上傳初選資料</p>
-      <h2 class="pdf-section-heading">3 頁 PDF 內容指引</h2>
+      <h2 class="pdf-section-heading">初選資料 PDF 內容指引</h2>
       <p class="pdf-section-sub">請依以下三個面向準備您的投稿文件。</p>
     </div>
 
@@ -617,7 +646,7 @@
 
     // ── Scroll reveal ────────────────────────────────────
     (function setupReveal() {
-      const EASE = 80; // ms stagger step
+      const EASE = 80;
 
       // Timeline section
       document.querySelectorAll('.timeline-heading').forEach(el => el.classList.add('reveal'));
@@ -630,15 +659,15 @@
         });
       });
 
-      // PDF section
+      // PDF section headings
       document.querySelectorAll('.pdf-section-heading, .pdf-section-sub').forEach((el, i) => {
         el.classList.add('reveal');
         el.style.transitionDelay = `${i * EASE}ms`;
       });
-      document.querySelectorAll('.pdf-item').forEach((el, i) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = `${i * 100}ms`;
-      });
+
+      // Lined paper: whole block slides up, then typewriter fires inside
+      const linedPaper = document.querySelector('.lined-paper');
+      if (linedPaper) linedPaper.classList.add('reveal');
 
       // CTA section
       document.querySelectorAll('.cta-heading, .cta-desc, .cta-btn, .cta-note').forEach((el, i) => {
@@ -646,11 +675,41 @@
         el.style.transitionDelay = `${i * 80}ms`;
       });
 
+      // Typewriter: title → desc sequentially, all three items simultaneously
+      function startPdfTypewriters() {
+        function typeText(el, text, onDone) {
+          let i = 0;
+          const id = setInterval(() => {
+            el.textContent += text[i++];
+            if (i >= text.length) { clearInterval(id); if (onDone) onDone(); }
+          }, 28);
+        }
+
+        document.querySelectorAll('.pdf-item').forEach((item, idx) => {
+          setTimeout(() => {
+            const titleEl = item.querySelector('.pdf-item-title');
+            const descEl  = item.querySelector('.pdf-item-desc');
+            const fullTitle = titleEl.textContent;
+            const fullDesc  = descEl.textContent;
+            titleEl.style.minHeight = titleEl.offsetHeight + 'px';
+            descEl.style.minHeight  = descEl.offsetHeight  + 'px';
+            titleEl.style.opacity = '1';
+            descEl.style.opacity  = '1';
+            titleEl.textContent = '';
+            descEl.textContent  = '';
+            typeText(titleEl, fullTitle, () => typeText(descEl, fullDesc));
+          }, idx * 700);
+        });
+      }
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
             observer.unobserve(entry.target);
+            if (entry.target === linedPaper) {
+              setTimeout(startPdfTypewriters, 550); // 550ms transition + 500ms pause
+            }
           }
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
