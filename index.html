@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIA x Claude Code: Call for Showcases</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -84,10 +87,10 @@
     .hero {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 80px 32px 64px;
+      padding: 80px 32px 80px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: center;
     }
     .hero-text {}
@@ -95,10 +98,11 @@
       display: none;
     }
     .hero-title {
-      font-family: Georgia, serif;
+      font-family: 'Inter', Arial Black, sans-serif;
       font-size: clamp(36px, 9vw, 128px);
-      font-weight: 500;
-      line-height: 1.1;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
       color: var(--near-black);
       margin-bottom: 48px;
     }
@@ -436,6 +440,36 @@
       transform: translateY(0);
     }
 
+    /* Hero logos */
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+    .hero-logos img {
+      height: 40px;
+      width: auto;
+    }
+    .hero-logos .logo-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--warm-silver);
+    }
+
+    /* Nav logo hide/show */
+    .nav-logo-group {
+      transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .nav-logo-group.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+    }
+
     /* Nav scroll state */
     nav { transition: box-shadow 0.3s; }
     nav.scrolled { box-shadow: 0 1px 20px rgba(20, 20, 19, 0.08); }
@@ -528,6 +562,11 @@
         <li>本計畫旨在發掘台灣最具潛力的 Claude Code 應用案例，入選團隊將有機會為原廠與開發者社群大會展示。</li>
         <li>主辦單位審核同意後，會發送確認信與手機短訊，請留意訊息。</li>
       </ul>
+      <div class="hero-logos" id="hero-logos">
+        <img src="img/logo-eng-horizon-black.svg" alt="AI Academy" />
+        <div class="logo-divider"></div>
+        <img src="img/Logo_Claude.svg" alt="Claude Code" />
+      </div>
     </div>
   </section>
 
@@ -760,11 +799,27 @@
       }, 90);
     }
 
-    const observer = new IntersectionObserver(entries => {
+    const heroObserver = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) runTypewriter(); });
     }, { threshold: 0.3 });
 
-    observer.observe(document.getElementById('hero'));
+    heroObserver.observe(document.getElementById('hero'));
+
+    // Nav logo: hidden when hero logos are visible, shown when scrolled past
+    const navLogoGroup = document.querySelector('.nav-logo-group');
+    navLogoGroup.classList.add('hidden');
+
+    const logoObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLogoGroup.classList.add('hidden');
+        } else {
+          navLogoGroup.classList.remove('hidden');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    logoObserver.observe(document.getElementById('hero-logos'));
   </script>
 </body>
 </html>
