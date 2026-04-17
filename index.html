@@ -228,6 +228,11 @@
       flex-shrink: 0;
       width: 28px;
       text-align: center;
+      color: var(--warm-silver);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 2px;
     }
     .timeline-content {}
     .timeline-date {
@@ -432,7 +437,8 @@
     <div class="nav-inner">
       <img src="logo.png" alt="AIA x Claude Code" class="nav-logo" />
       <a href="https://s.sted.tw/iuyYZg" class="nav-cta" target="_blank" rel="noopener">
-        立即投稿 →
+        立即投稿
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M5 12h14m-7-7l7 7l-7 7"/></svg>
       </a>
     </div>
   </nav>
@@ -465,7 +471,9 @@
         <h3 class="timeline-group-title">AIA x Claude Code: Call for Showcases</h3>
         <div class="timeline-items">
           <div class="timeline-item">
-            <div class="timeline-emoji">📝</div>
+            <div class="timeline-emoji">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"><path d="M8 2v4m8-4v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M9 16l2 2l4-4"/></svg>
+            </div>
             <div class="timeline-content">
               <div class="timeline-date">4/17（五）18:00</div>
               <div class="timeline-desc">徵件開始</div>
@@ -473,14 +481,18 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-emoji">📝</div>
+            <div class="timeline-emoji">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"><path d="M8 2v4m8-4v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18m-7 4l-4 4m0-4l4 4"/></svg>
+            </div>
             <div class="timeline-content">
               <div class="timeline-date">5/13（三）12:00</div>
               <div class="timeline-desc">徵件截止</div>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-emoji">📝</div>
+            <div class="timeline-emoji">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"><path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978m7-7.318v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978M18 9h1.5a1 1 0 0 0 0-5H18M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm0 0H4.5a1 1 0 0 1 0-5H6"/></svg>
+            </div>
             <div class="timeline-content">
               <div class="timeline-date">5/15（五）12:00</div>
               <div class="timeline-desc">公布入選 Demo 共 10 組團隊</div>
@@ -493,7 +505,9 @@
         <h3 class="timeline-group-title">AIA Claude Code: Demo Showcase</h3>
         <div class="timeline-items">
           <div class="timeline-item">
-            <div class="timeline-emoji">📝</div>
+            <div class="timeline-emoji">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"><path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978m7-7.318v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978M18 9h1.5a1 1 0 0 0 0-5H18M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm0 0H4.5a1 1 0 0 1 0-5H6"/></svg>
+            </div>
             <div class="timeline-content">
               <div class="timeline-date">5/18（一）18:00</div>
               <div class="timeline-desc">Showcase 實體決選</div>
@@ -501,7 +515,9 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-emoji">📍</div>
+            <div class="timeline-emoji">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
             <div class="timeline-content">
               <div class="timeline-date">決選地點</div>
               <div class="timeline-desc">政大公企 A431 階梯型會議教室</div>
@@ -555,9 +571,7 @@
       <p class="cta-desc">上傳您的 3 頁 PDF，展示您最具創意的 Claude Code 應用案例，入選團隊將獲得在大會展示的機會。</p>
       <a href="https://s.sted.tw/iuyYZg" class="cta-btn" target="_blank" rel="noopener">
         立即投稿
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904zM6 12h16"/></svg>
       </a>
       <p class="cta-note">截止日期：2025 年 5 月 13 日（三）中午 12:00</p>
     </div>

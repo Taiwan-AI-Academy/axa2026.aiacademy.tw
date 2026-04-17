@@ -2,3 +2,5 @@ prompt*
 package*.json
 node_modules/
 .claude
+.agents
+skills*
