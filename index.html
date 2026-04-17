@@ -477,11 +477,13 @@
     }
 
     /* Nav logo hide/show */
-    .nav-logo-group {
+    .nav-logo-group,
+    .nav-cta {
       transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1),
                   transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
     }
-    .nav-logo-group.hidden {
+    .nav-logo-group.hidden,
+    .nav-cta.hidden {
       opacity: 0;
       pointer-events: none;
       transform: translateY(-6px);
@@ -798,16 +800,20 @@
 
     heroObserver.observe(document.getElementById('hero'));
 
-    // Nav logo: hidden when hero logos are visible, shown when scrolled past
+    // Nav logo + CTA: hidden when hero CTA/logos are visible, shown when scrolled past
     const navLogoGroup = document.querySelector('.nav-logo-group');
+    const navCta = document.querySelector('.nav-cta');
     navLogoGroup.classList.add('hidden');
+    navCta.classList.add('hidden');
 
     const logoObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           navLogoGroup.classList.add('hidden');
+          navCta.classList.add('hidden');
         } else {
           navLogoGroup.classList.remove('hidden');
+          navCta.classList.remove('hidden');
         }
       });
     }, { threshold: 0.1 });
