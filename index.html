@@ -69,7 +69,7 @@
       border-radius: 8px;
       text-decoration: none;
       box-shadow: #c96442 0 0 0 0, #c96442 0 0 0 1px;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
     }
     .nav-cta:hover { opacity: 0.88; }
 
@@ -396,6 +396,51 @@
       border-bottom: 1px solid var(--dark-surface);
     }
 
+    /* ─── Entrance & Scroll Animations ───────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-title {
+      animation: fadeUp 0.75s cubic-bezier(0.25, 1, 0.5, 1) both;
+    }
+    .hero-bullets li:nth-child(1) {
+      animation: fadeUp 0.7s 0.15s cubic-bezier(0.25, 1, 0.5, 1) both;
+    }
+    .hero-bullets li:nth-child(2) {
+      animation: fadeUp 0.7s 0.28s cubic-bezier(0.25, 1, 0.5, 1) both;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Nav scroll state */
+    nav { transition: box-shadow 0.3s; }
+    nav.scrolled { box-shadow: 0 1px 20px rgba(20, 20, 19, 0.08); }
+
+    /* Button press micro-interaction */
+    .nav-cta:active { transform: scale(0.96); }
+    .cta-btn:active { transform: translateY(0px) scale(0.97); }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     /* ─── Responsive ─────────────────────────────── */
     @media (max-width: 768px) {
       .hero {
@@ -564,6 +609,55 @@
   </footer>
 
   <script>
+    // ── Nav scroll state ────────────────────────────────
+    const navEl = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      navEl.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ── Scroll reveal ────────────────────────────────────
+    (function setupReveal() {
+      const EASE = 80; // ms stagger step
+
+      // Timeline section
+      document.querySelectorAll('.timeline-heading').forEach(el => el.classList.add('reveal'));
+      document.querySelectorAll('.timeline-group').forEach(group => {
+        const title = group.querySelector('.timeline-group-title');
+        if (title) title.classList.add('reveal');
+        group.querySelectorAll('.timeline-item').forEach((item, i) => {
+          item.classList.add('reveal');
+          item.style.transitionDelay = `${i * EASE}ms`;
+        });
+      });
+
+      // PDF section
+      document.querySelectorAll('.pdf-section-heading, .pdf-section-sub').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${i * EASE}ms`;
+      });
+      document.querySelectorAll('.pdf-item').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${i * 100}ms`;
+      });
+
+      // CTA section
+      document.querySelectorAll('.cta-heading, .cta-desc, .cta-btn, .cta-note').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${i * 80}ms`;
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
     // ── Typewriter on scroll-into-view ──────────────────
     const showEl = document.getElementById('typewriter-show');
     const casesEl = document.getElementById('typewriter-cases');
