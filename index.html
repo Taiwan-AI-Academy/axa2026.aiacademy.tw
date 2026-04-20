@@ -137,16 +137,16 @@
       font-size: 21px;
       line-height: 1.6;
       color: var(--olive-gray);
-      padding-left: 20px;
-      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
     }
-    .hero-bullets li::before {
-      content: '▋';
-      position: absolute;
-      left: 0;
-      color: var(--terracotta);
-      font-size: 18px;
-      line-height: 1.7;
+    .hero-bullets li .bullet-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      margin-top: 0.2em;
+      object-fit: contain;
     }
 
     /* ─── Divider ─────────────────────────────────── */
@@ -554,7 +554,10 @@
         </div>
       </div>
       <ul class="hero-bullets">
-        <li>本計畫旨在發掘台灣最具潛力的 Claude Code 應用案例，入選團隊將有機會為原廠與開發者社群大會展示。</li>
+        <li><img class="bullet-icon" src="img/logo-black.svg" alt="">AIA 在找台灣最猛的 Claude Code 應用案例。</li>
+        <li><img class="bullet-icon" src="img/Logo_Claude_Spark.svg" alt="">最好的作品，直接上800 人現場，Anthropic 大神在台下，親眼看你 demo。</li>
+        <li><img class="bullet-icon" src="img/icon-plug-zap.svg" alt="">能結合 Claude Code、MCP、或最新 Claude 服務？加分！英文 demo 優先，中文也可以。</li>
+        <li><img class="bullet-icon" src="img/icon-clapperboard.svg" alt="">條件很簡單： 3 頁 PDF + 90 秒 Demo 影片，讓聽眾 Wow 一聲、讓工程師嚇到失禁 !</li>
       </ul>
     </div>
   </section>
