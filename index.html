@@ -160,35 +160,16 @@
       border-top: 1px solid var(--border-warm);
     }
 
-    /* ─── Timeline (dark section) ─────────────────── */
-    .timeline-section {
-      background: var(--near-black);
-      padding: 96px 32px;
-      margin-top: 80px;
-    }
-    .timeline-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-label {
-      display: none;
-    }
-    .timeline-heading {
-      font-family: Arial, sans-serif;
-      font-size: clamp(28px, 4vw, 52px);
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--ivory);
-      margin-bottom: 56px;
-    }
-
-    .event-blocks {
+    /* ─── Hero Event Blocks ───────────────────────── */
+    .hero-event-blocks {
+      margin-top: 48px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 16px;
     }
     .event-block {
-      background: var(--dark-surface);
+      background: var(--ivory);
+      border: 1px solid var(--border-warm);
       border-radius: 4px;
       display: flex;
       overflow: hidden;
@@ -199,25 +180,25 @@
       flex-shrink: 0;
     }
     .event-block-content {
-      padding: 36px 32px;
+      padding: 28px 28px;
       flex: 1;
     }
     .event-block-eyebrow {
       font-family: Arial, sans-serif;
       font-size: 13px;
       font-weight: 500;
-      color: var(--stone-gray);
+      color: var(--warm-silver);
       letter-spacing: 0.06em;
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .event-block-title {
       font-family: Arial, sans-serif;
-      font-size: clamp(22px, 2.5vw, 28px);
+      font-size: clamp(20px, 2.5vw, 26px);
       font-weight: 500;
-      color: var(--ivory);
+      color: var(--near-black);
       line-height: 1.25;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
     .event-block-meta {
       display: flex;
@@ -233,173 +214,17 @@
       display: flex;
       align-items: center;
       flex-shrink: 0;
-      color: var(--stone-gray);
+      color: var(--warm-silver);
     }
     .event-block-label svg {
       display: block;
     }
     .event-block-value {
       font-family: Arial, sans-serif;
-      font-size: 17px;
-      color: var(--warm-silver);
+      font-size: 16px;
+      color: var(--olive-gray);
       line-height: 1.5;
     }
-
-    /* ─── PDF Guide Section ──────────────────────── */
-    .pdf-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 96px 32px;
-    }
-    .pdf-section-header {
-      margin-bottom: 48px;
-    }
-    .pdf-section-heading {
-      font-family: Arial, sans-serif;
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--near-black);
-      margin-bottom: 12px;
-    }
-    .pdf-section-sub {
-      font-family: Arial, sans-serif;
-      font-size: 21px;
-      color: var(--olive-gray);
-      line-height: 1.6;
-    }
-
-    /* Hide pdf text until typewriter starts */
-    .lined-paper .pdf-item-title,
-    .lined-paper .pdf-item-desc { opacity: 0; }
-
-    /* Lined paper card */
-    .lined-paper {
-      background: var(--ivory);
-      border: 1px solid var(--border-cream);
-      border-radius: 16px;
-      box-shadow: rgba(0,0,0,0.05) 0 4px 24px;
-      overflow: hidden;
-      position: relative;
-    }
-    .lined-paper-header {
-      background: var(--warm-sand);
-      padding: 20px 40px;
-      border-bottom: 1px solid var(--border-warm);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .paper-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--border-warm);
-    }
-    .paper-dot:nth-child(2) { background: var(--terracotta); opacity: 0.6; }
-    .lined-paper-title {
-      font-family: Arial, sans-serif;
-      font-size: 17px;
-      color: var(--stone-gray);
-      margin-left: 8px;
-      font-weight: 400;
-      letter-spacing: 0.3px;
-    }
-    .lined-paper-body {
-      padding: 0 40px 40px;
-    }
-    .lined-paper-body .pdf-item {
-      display: flex;
-      flex-direction: column;
-      border-bottom: 1px solid var(--border-cream);
-      padding: 24px 0 20px;
-    }
-    .lined-paper-body .pdf-item:last-child { border-bottom: none; }
-    .pdf-item-num {
-      font-family: Arial, sans-serif;
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--terracotta);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      line-height: 1.4;
-      margin-bottom: 6px;
-    }
-    .pdf-item-title {
-      font-family: Arial, sans-serif;
-      font-size: 26px;
-      font-weight: 500;
-      line-height: 1.3;
-      color: var(--near-black);
-      margin-bottom: 6px;
-    }
-    .pdf-item-desc {
-      font-family: Arial, sans-serif;
-      font-size: 20px;
-      color: var(--olive-gray);
-      line-height: 1.6;
-    }
-
-    /* ─── CTA Section ────────────────────────────── */
-    .cta-section {
-      background: var(--warm-sand);
-      border-top: 1px solid var(--border-warm);
-      border-bottom: 1px solid var(--border-warm);
-      padding: 80px 32px;
-      text-align: center;
-    }
-    .cta-inner { max-width: 640px; margin: 0 auto; }
-    .cta-heading {
-      font-family: Arial, sans-serif;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--near-black);
-      margin-bottom: 16px;
-    }
-    .cta-desc {
-      font-family: Arial, sans-serif;
-      font-size: 21px;
-      color: var(--olive-gray);
-      line-height: 1.6;
-      margin-bottom: 36px;
-    }
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--terracotta);
-      color: var(--ivory);
-      font-family: Arial, sans-serif;
-      font-size: 21px;
-      font-weight: 500;
-      padding: 14px 32px;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: #c96442 0 0 0 0, #c96442 0 0 0 1px;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .cta-note {
-      font-family: Arial, sans-serif;
-      font-size: 17px;
-      color: var(--stone-gray);
-      margin-top: 20px;
-    }
-
-    /* ─── Footer ─────────────────────────────────── */
-    footer {
-      padding: 40px 32px;
-      text-align: center;
-    }
-    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .footer-logo-group { display: flex; align-items: stretch; gap: 16px; margin-bottom: 16px; height: 56px; }
-    .footer-logo-group img { height: 100%; width: auto; }
-    .footer-text {
-      font-family: Arial, sans-serif;
-      font-size: 17px;
-      color: var(--stone-gray);
-    }
-
 
     /* ─── Entrance & Scroll Animations ───────────── */
     @keyframes fadeUp {
@@ -412,9 +237,6 @@
     }
     .hero-bullets li:nth-child(1) {
       animation: fadeUp 0.7s 0.15s cubic-bezier(0.25, 1, 0.5, 1) both;
-    }
-    .hero-bullets li:nth-child(2) {
-      animation: fadeUp 0.7s 0.28s cubic-bezier(0.25, 1, 0.5, 1) both;
     }
 
     /* Scroll reveal */
@@ -432,7 +254,10 @@
     /* Hero CTA */
     .hero-cta-wrap {
       margin-top: 48px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
     .hero-cta-btn {
       display: inline-flex;
@@ -453,6 +278,12 @@
     .hero-cta-btn:active { transform: scale(0.97); }
     .hero-cta-btn:hover svg {
       animation: planeFly 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .hero-cta-deadline {
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      color: var(--stone-gray);
+      line-height: 1.5;
     }
 
     /* Hero logos */
@@ -514,13 +345,9 @@
       43%  { transform: translateX(-52px); opacity: 0; }
       100% { transform: translateX(0);     opacity: 1; }
     }
-    .cta-btn:hover svg {
-      animation: planeFly 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
 
     /* Button press micro-interaction */
     .nav-cta:active { transform: scale(0.96); }
-    .cta-btn:active { transform: translateY(0px) scale(0.97); }
 
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
@@ -529,6 +356,20 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+    }
+
+    /* ─── Footer ─────────────────────────────────── */
+    footer {
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-group { display: flex; align-items: stretch; gap: 12px; margin-bottom: 16px; height: 28px; }
+    .footer-logo-group img { height: 100%; width: auto; }
+    .footer-text {
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      color: var(--stone-gray);
     }
 
     /* ─── Responsive ─────────────────────────────── */
@@ -541,15 +382,12 @@
       .hero-title {
         font-size: clamp(48px, 14vw, 80px);
       }
-      .timeline-section { padding: 64px 20px; }
-      .pdf-section { padding: 64px 20px; }
-      .lined-paper-header,
-      .lined-paper-body { padding-left: 20px; padding-right: 20px; }
+      .hero-event-blocks { grid-template-columns: 1fr; }
+      .event-block-content { padding: 24px 20px; }
+      .hero-cta-wrap { flex-direction: column; align-items: flex-start; }
       .nav-inner { padding: 0 20px; }
       .nav-logo-group { flex-direction: column; align-items: flex-start; height: auto; gap: 8px; }
       .nav-logo-group img { height: 22px; }
-      .event-blocks { grid-template-columns: 1fr; }
-      .event-block-content { padding: 28px 24px; }
     }
   </style>
 </head>
@@ -583,26 +421,14 @@
           立即投稿
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904zM6 12h16"/></svg>
         </a>
+        <span class="hero-cta-deadline">截止日期：2025 年 5 月 13 日（三）中午 12:00</span>
       </div>
       <div class="hero-logos" id="hero-logos">
         <img src="img/logo-eng-horizon-black.svg" alt="AI Academy" />
         <div class="logo-divider"></div>
         <img src="img/Logo_Claude.svg" alt="Claude Code" />
       </div>
-      <ul class="hero-bullets">
-        <li>本計畫旨在發掘台灣最具潛力的 Claude Code 應用案例，入選團隊將有機會為原廠與開發者社群大會展示。</li>
-        <li>主辦單位審核同意後，會發送確認信與手機短訊，請留意訊息。</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Timeline -->
-  <section class="timeline-section">
-    <div class="timeline-inner">
-      <p class="section-label">重要時程</p>
-      <h2 class="timeline-heading">活動流程</h2>
-
-      <div class="event-blocks">
+      <div class="hero-event-blocks">
         <div class="event-block">
           <div class="event-block-bar"></div>
           <div class="event-block-content">
@@ -611,7 +437,7 @@
             <div class="event-block-meta">
               <div class="event-block-row">
                 <span class="event-block-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-                <span class="event-block-value">4/17（五）18:00 — 5/7（四）18:00</span>
+                <span class="event-block-value">4/17（五）18:00 — 5/13（三）12:00</span>
               </div>
             </div>
           </div>
@@ -635,51 +461,9 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- PDF Guide -->
-  <section class="pdf-section">
-    <div class="pdf-section-header">
-      <p class="section-label">上傳初選資料</p>
-      <h2 class="pdf-section-heading">初選資料 PDF 內容指引</h2>
-      <p class="pdf-section-sub">請準備 3 頁 PDF，並於文件內附上 90 秒以內的 Demo 影片連結。</p>
-    </div>
-
-    <div class="lined-paper">
-      <div class="lined-paper-header">
-        <div class="paper-dot"></div>
-        <div class="paper-dot"></div>
-        <div class="paper-dot"></div>
-        <span class="lined-paper-title">投稿文件範本 — 3 頁 PDF（含 90 秒 Demo 影片連結）</span>
-      </div>
-      <div class="lined-paper-body">
-        <div class="pdf-item">
-          <h3 class="pdf-item-title">作品展示</h3>
-          <p class="pdf-item-desc">Demo 可以讓人 Wow 一聲的產品！附上 90 秒以內影片連結，展示您最令人驚艷的成果。</p>
-        </div>
-        <div class="pdf-item">
-          <h3 class="pdf-item-title">應用方案</h3>
-          <p class="pdf-item-desc">怎麼用 Claude Code 達成的！說明您的技術路徑、工具整合方式，以及實作過程中的關鍵決策。</p>
-        </div>
-        <div class="pdf-item">
-          <h3 class="pdf-item-title">應用價值</h3>
-          <p class="pdf-item-desc">對工作模式或組織內外流程產生什麼巨大效益？根本的改變是什麼？請說明應用場景、痛點、流程與架構方法。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-heading">準備好了嗎？</h2>
-      <p class="cta-desc">上傳您的 3 頁 PDF，展示您最具創意的 Claude Code 應用案例，入選團隊將獲得在大會展示的機會。</p>
-      <a href="https://forms.gle/B9Ros2eYoSx5LP4u9" class="cta-btn" target="_blank" rel="noopener">
-        立即投稿
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904zM6 12h16"/></svg>
-      </a>
-      <p class="cta-note">截止日期：2025 年 5 月 13 日（三）中午 12:00</p>
+      <ul class="hero-bullets">
+        <li>本計畫旨在發掘台灣最具潛力的 Claude Code 應用案例，入選團隊將有機會為原廠與開發者社群大會展示。</li>
+      </ul>
     </div>
   </section>
 
@@ -704,65 +488,16 @@
     // ── Scroll reveal ────────────────────────────────────
     (function setupReveal() {
       const EASE = 80;
-
-      // Timeline section
-      document.querySelectorAll('.timeline-heading').forEach(el => el.classList.add('reveal'));
       document.querySelectorAll('.event-block').forEach((block, i) => {
         block.classList.add('reveal');
         block.style.transitionDelay = `${i * EASE}ms`;
       });
-
-      // PDF section headings
-      document.querySelectorAll('.pdf-section-heading, .pdf-section-sub').forEach((el, i) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = `${i * EASE}ms`;
-      });
-
-      // Lined paper: whole block slides up, then typewriter fires inside
-      const linedPaper = document.querySelector('.lined-paper');
-      if (linedPaper) linedPaper.classList.add('reveal');
-
-      // CTA section
-      document.querySelectorAll('.cta-heading, .cta-desc, .cta-btn, .cta-note').forEach((el, i) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = `${i * 80}ms`;
-      });
-
-      // Typewriter: title → desc sequentially, all three items simultaneously
-      function startPdfTypewriters() {
-        function typeText(el, text, onDone) {
-          let i = 0;
-          const id = setInterval(() => {
-            el.textContent += text[i++];
-            if (i >= text.length) { clearInterval(id); if (onDone) onDone(); }
-          }, 28);
-        }
-
-        document.querySelectorAll('.pdf-item').forEach((item, idx) => {
-          setTimeout(() => {
-            const titleEl = item.querySelector('.pdf-item-title');
-            const descEl  = item.querySelector('.pdf-item-desc');
-            const fullTitle = titleEl.textContent;
-            const fullDesc  = descEl.textContent;
-            titleEl.style.minHeight = titleEl.offsetHeight + 'px';
-            descEl.style.minHeight  = descEl.offsetHeight  + 'px';
-            titleEl.style.opacity = '1';
-            descEl.style.opacity  = '1';
-            titleEl.textContent = '';
-            descEl.textContent  = '';
-            typeText(titleEl, fullTitle, () => typeText(descEl, fullDesc));
-          }, idx * 700);
-        });
-      }
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
             observer.unobserve(entry.target);
-            if (entry.target === linedPaper) {
-              setTimeout(startPdfTypewriters, 550); // 550ms transition + 500ms pause
-            }
           }
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
