@@ -237,30 +237,6 @@
       line-height: 1.5;
     }
 
-    /* ─── Entrance & Scroll Animations ───────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-title {
-      animation: fadeUp 0.75s cubic-bezier(0.25, 1, 0.5, 1) both;
-    }
-    .hero-bullets li:nth-child(1) {
-      animation: fadeUp 0.7s 0.15s cubic-bezier(0.25, 1, 0.5, 1) both;
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1),
-                  transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .reveal.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
 
     /* Hero CTA */
     .hero-cta-wrap {
@@ -465,10 +441,10 @@
   <!-- Nav -->
   <nav>
     <div class="nav-inner">
-      <div class="nav-logo-group">
+      <a href="/" class="nav-logo-group" style="text-decoration:none;">
           <img src="img/AIA-logo-black.svg" alt="AI Academy" />
           <img src="img/Logo_Claude.svg" alt="Claude" />
-        </div>
+        </a>
     </div>
   </nav>
   <div class="page-body">
@@ -478,7 +454,7 @@
     <div class="hero-text">
       <p class="hero-overline">AIA x Claude Code</p>
       <h1 class="hero-title">
-        Call for<br>
+        <span id="typewriter-callfor"></span><br>
         <span class="accent typewriter-wrap" id="typewriter-show"></span><span style="white-space:nowrap"><span id="typewriter-cases" style="color:rgb(141 141 141)"></span><span class="cursor" id="cursor"></span></span>
       </h1>
       <div class="hero-cta-wrap">
@@ -554,10 +530,10 @@
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo-group">
+      <a href="/" class="footer-logo-group" style="text-decoration:none;">
         <img src="img/AIA-logo-black.svg" alt="AI Academy" />
         <img src="img/Logo_Claude.svg" alt="Claude" />
-      </div>
+      </a>
       <p class="footer-text">© 2025 台灣人工智慧學校 × Anthropic Claude Code. All rights reserved.</p>
     </div>
   </footer>
@@ -569,49 +545,42 @@
       navEl.classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
 
-    // ── Scroll reveal ────────────────────────────────────
-    (function setupReveal() {
-      const EASE = 80;
-      document.querySelectorAll('.event-block').forEach((block, i) => {
-        block.classList.add('reveal');
-        block.style.transitionDelay = `${i * EASE}ms`;
-      });
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    })();
 
     // ── Typewriter on scroll-into-view ──────────────────
+    const callforEl = document.getElementById('typewriter-callfor');
     const showEl = document.getElementById('typewriter-show');
     const casesEl = document.getElementById('typewriter-cases');
     const cursor = document.getElementById('cursor');
-    const part1 = 'Show';
-    const part2 = 'cases';
     let typed = false;
+
+    function typeStr(el, str, speed, onDone) {
+      let i = 0;
+      const iv = setInterval(() => {
+        el.textContent += str[i++];
+        if (i >= str.length) { clearInterval(iv); if (onDone) onDone(); }
+      }, speed);
+    }
 
     function runTypewriter() {
       if (typed) return;
       typed = true;
-      showEl.textContent = '';
+      callforEl.textContent = '';
+      showEl.textContent = '\u00A0';
+      showEl.style.visibility = 'hidden';
       casesEl.textContent = '';
       cursor.style.display = 'inline-block';
-      let i = 0;
-      const allChars = part1 + part2;
-      const interval = setInterval(() => {
-        const ch = allChars[i];
-        if (i < part1.length) { showEl.textContent += ch; }
-        else { casesEl.textContent += ch; }
-        i++;
-        if (i >= allChars.length) clearInterval(interval);
-      }, 90);
+      callforEl.after(cursor);
+      typeStr(callforEl, 'Call for', 90, () => {
+        setTimeout(() => {
+          showEl.style.visibility = '';
+          showEl.textContent = '';
+          showEl.after(cursor);
+          typeStr(showEl, 'Show', 90, () => {
+            casesEl.after(cursor);
+            typeStr(casesEl, 'cases', 90, null);
+          });
+        }, 120);
+      });
     }
 
     const heroObserver = new IntersectionObserver(entries => {
