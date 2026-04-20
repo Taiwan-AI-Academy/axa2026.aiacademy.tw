@@ -140,6 +140,9 @@
       display: flex;
       align-items: flex-start;
       gap: 12px;
+      -webkit-text-autospace: none;
+      text-autospace: no-autospace;
+      word-spacing: 0;
     }
     .hero-bullets li .bullet-icon {
       flex-shrink: 0;
@@ -147,6 +150,14 @@
       height: 28px;
       margin-top: 0.2em;
       object-fit: contain;
+    }
+    .hl-orange {
+      font-weight: 700;
+      color: var(--terracotta);
+    }
+    .hl-black {
+      font-weight: 700;
+      color: var(--near-black);
     }
 
     /* ─── Divider ─────────────────────────────────── */
@@ -379,19 +390,6 @@
       .hero-logos .logo-divider { display: none; }
     }
 
-    /* Nav logo hide/show */
-    .nav-logo-group,
-    .nav-cta {
-      transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1),
-                  transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .nav-logo-group.hidden,
-    .nav-cta.hidden {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-6px);
-    }
-
     /* Nav scroll state */
     nav { transition: box-shadow 0.3s; }
     nav.scrolled { box-shadow: 0 1px 20px rgba(20, 20, 19, 0.08); }
@@ -471,10 +469,6 @@
           <img src="img/AIA-logo-black.svg" alt="AI Academy" />
           <img src="img/Logo_Claude.svg" alt="Claude" />
         </div>
-      <a href="https://forms.gle/B9Ros2eYoSx5LP4u9" class="nav-cta" target="_blank" rel="noopener">
-        立即投稿
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M5 12h14m-7-7l7 7l-7 7"/></svg>
-      </a>
     </div>
   </nav>
   <div class="page-body">
@@ -515,11 +509,6 @@
           <div class="hero-countdown-deadline">截止日期：2026 年 5 月 13 日（三）中午 12:00</div>
         </div>
       </div>
-      <div class="hero-logos" id="hero-logos">
-        <img src="img/AIA-logo-black.svg" alt="AI Academy" />
-        <div class="logo-divider"></div>
-        <img src="img/Logo_Claude.svg" alt="Claude Code" />
-      </div>
       <div class="hero-event-blocks">
         <div class="event-block">
           <div class="event-block-bar"></div>
@@ -554,10 +543,10 @@
         </div>
       </div>
       <ul class="hero-bullets">
-        <li><img class="bullet-icon" src="img/logo-black.svg" alt="">AIA 在找台灣最猛的 Claude Code 應用案例。</li>
-        <li><img class="bullet-icon" src="img/Logo_Claude_Spark.svg" alt="">最好的作品，直接上800 人現場，Anthropic 大神在台下，親眼看你 demo。</li>
-        <li><img class="bullet-icon" src="img/icon-plug-zap.svg" alt="">能結合 Claude Code、MCP、或最新 Claude 服務？加分！英文 demo 優先，中文也可以。</li>
-        <li><img class="bullet-icon" src="img/icon-clapperboard.svg" alt="">條件很簡單： 3 頁 PDF + 90 秒 Demo 影片，讓聽眾 Wow 一聲、讓工程師嚇到失禁 !</li>
+        <li><img class="bullet-icon" src="img/logo-black.svg" alt=""><span>AIA 在找台灣<span class="hl-orange">最猛</span>的<span class="hl-black">Claude Code</span>應用案例。</span></li>
+        <li><img class="bullet-icon" src="img/icon-plug-zap.svg" alt=""><span>能結合<span class="hl-black">Claude Code</span>、MCP、或最新 Claude 服務？加分！<span class="hl-orange">英文 demo 優先</span>，中文也可以。</span></li>
+        <li><img class="bullet-icon" src="img/icon-clapperboard.svg" alt=""><span>條件很簡單：<span class="hl-orange">3 頁 PDF + 90 秒 Demo 影片</span>，讓聽眾 Wow 一聲、讓工程師嚇到失禁 !</span></li>
+        <li><img class="bullet-icon" src="img/Logo_Claude_Spark.svg" alt=""><span>最好的作品，直接上 800 人現場，<span class="hl-black">Anthropic</span>大神在台下，親眼看你 demo。</span></li>
       </ul>
     </div>
   </section>
@@ -630,26 +619,6 @@
     }, { threshold: 0.3 });
 
     heroObserver.observe(document.getElementById('hero'));
-
-    // Nav logo + CTA: hidden when hero CTA/logos are visible, shown when scrolled past
-    const navLogoGroup = document.querySelector('.nav-logo-group');
-    const navCta = document.querySelector('.nav-cta');
-    navLogoGroup.classList.add('hidden');
-    navCta.classList.add('hidden');
-
-    const logoObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          navLogoGroup.classList.add('hidden');
-          navCta.classList.add('hidden');
-        } else {
-          navLogoGroup.classList.remove('hidden');
-          navCta.classList.remove('hidden');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    logoObserver.observe(document.getElementById('hero-logos'));
 
     // ── Countdown ────────────────────────────────────────
     (function setupCountdown() {
