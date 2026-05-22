@@ -89,6 +89,7 @@
       flex-shrink: 0;
     }
     .nav-logo img { height: 100%; width: auto; }
+    .nav-logo-mobile { display: none; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -246,6 +247,20 @@
       object-fit: cover;
       flex-shrink: 0;
       background: var(--warm-sand);
+    }
+    .hero-speaker-photo-wrap {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      background: var(--warm-sand);
+    }
+    .hero-speaker-photo-wrap img {
+      position: absolute;
+      width: 120%;
+      height: auto;
     }
     .hero-speaker-name {
       font-size: 32px;
@@ -633,7 +648,6 @@
       margin-bottom: 36px;
     }
     .demo-card {
-      position: relative;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 12px;
@@ -649,19 +663,6 @@
       text-transform: uppercase;
       color: var(--terracotta);
       margin-bottom: 16px;
-    }
-    .demo-presenter-wrap {
-      margin-bottom: 8px;
-    }
-    .demo-presenter-photo {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(255,255,255,0.15);
     }
     .demo-presenter {
       font-size: 20px;
@@ -827,6 +828,8 @@
       .s-hero .s-inner { padding: 0 20px; }
       .nav-inner { padding: 0 20px; }
       .nav-links { display: none; }
+      .nav-logo { gap: 12px; flex-shrink: 1; min-width: 0; }
+      .nav-logo img { max-width: 110px; }
       .s-hero { padding: 48px 0 56px; }
       .s-about, .s-speakers, .s-agenda, .s-demo, .s-venue, .s-partners { padding: 64px 0; }
       .about-grid { grid-template-columns: 1fr; }
@@ -884,7 +887,9 @@
               </div>
             </div>
             <div class="hero-speaker">
-              <img src="img/speaker/Tarun Chhabra.png" alt="Tarun Chhabra" class="hero-speaker-photo">
+              <div class="hero-speaker-photo-wrap">
+                <img src="img/speaker/Tarun Chhabra.png" alt="Tarun Chhabra" style="top: 0; left: -10%;">
+              </div>
               <div>
                 <div class="hero-speaker-name">Tarun Chhabra</div>
                 <div class="hero-speaker-role">Anthropic 國家安全政策主任</div>
@@ -935,18 +940,12 @@
     <div class="demo-grid">
       <div class="demo-card">
         <div class="demo-num">Demo</div>
-        <div class="demo-presenter-wrap">
-          <img src="img/speaker/kao.png" alt="高見龍" class="demo-presenter-photo">
-          <div class="demo-presenter">高見龍</div>
-        </div>
+        <div class="demo-presenter">高見龍</div>
         <div class="demo-talk">票賣出去之後才是真考驗：<br>一個人 + Claude Code = 一條龍</div>
       </div>
       <div class="demo-card">
         <div class="demo-num">Demo</div>
-        <div class="demo-presenter-wrap">
-          <img src="img/speaker/huang.png" alt="黃亮勳" class="demo-presenter-photo">
-          <div class="demo-presenter">黃亮勳</div>
-        </div>
+        <div class="demo-presenter">黃亮勳</div>
         <div class="demo-talk">不做 Agent，做 Agent 的基石：<br>Twinkle Hub</div>
       </div>
     </div>
