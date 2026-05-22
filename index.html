@@ -633,6 +633,7 @@
       margin-bottom: 36px;
     }
     .demo-card {
+      position: relative;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 12px;
@@ -649,11 +650,23 @@
       color: var(--terracotta);
       margin-bottom: 16px;
     }
+    .demo-presenter-wrap {
+      margin-bottom: 8px;
+    }
+    .demo-presenter-photo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.15);
+    }
     .demo-presenter {
       font-size: 20px;
       font-weight: 800;
       color: var(--ivory);
-      margin-bottom: 8px;
     }
     .demo-talk {
       font-size: 15px;
@@ -922,12 +935,18 @@
     <div class="demo-grid">
       <div class="demo-card">
         <div class="demo-num">Demo</div>
-        <div class="demo-presenter">高見龍</div>
+        <div class="demo-presenter-wrap">
+          <img src="img/speaker/kao.png" alt="高見龍" class="demo-presenter-photo">
+          <div class="demo-presenter">高見龍</div>
+        </div>
         <div class="demo-talk">票賣出去之後才是真考驗：<br>一個人 + Claude Code = 一條龍</div>
       </div>
       <div class="demo-card">
         <div class="demo-num">Demo</div>
-        <div class="demo-presenter">黃亮勳</div>
+        <div class="demo-presenter-wrap">
+          <img src="img/speaker/huang.png" alt="黃亮勳" class="demo-presenter-photo">
+          <div class="demo-presenter">黃亮勳</div>
+        </div>
         <div class="demo-talk">不做 Agent，做 Agent 的基石：<br>Twinkle Hub</div>
       </div>
     </div>
