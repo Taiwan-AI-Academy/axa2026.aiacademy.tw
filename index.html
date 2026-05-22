@@ -105,6 +105,19 @@
       white-space: nowrap;
     }
     .nav-links a:hover { color: var(--near-black); background: var(--warm-sand); }
+    .nav-coming-soon {
+      display: inline-flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 500;
+      background: var(--warm-sand);
+      color: var(--warm-silver);
+      padding: 8px 18px;
+      border-radius: 8px;
+      white-space: nowrap;
+      pointer-events: none;
+      cursor: default;
+    }
 
     .nav-cta {
       display: inline-flex;
@@ -737,7 +750,7 @@
       color: var(--warm-silver);
       margin-bottom: 20px;
     }
-    .partner-logo { height: 52px; width: auto; max-width: 240px; }
+    .partner-logo { height: 52px; width: auto; max-width: 300px; }
     .partner-text {
       font-size: 22px;
       font-weight: 700;
@@ -821,8 +834,9 @@
       <img src="img/Logo_Claude_Code.svg" alt="Claude Code">
     </a>
     <ul class="nav-links">
-      <li><a href="#demo">技術展示</a></li>
+      <li><a href="#demo">案例展示</a></li>
       <li><a href="#venue">交通資訊</a></li>
+      <li><span class="nav-coming-soon">議程即將開放</span></li>
     </ul>
     <div id="nav-cta-wrap"></div>
   </div>
@@ -945,7 +959,12 @@
           </span>
           <span class="venue-transport-text">建議搭乘大眾運輸，現場停車位有限</span>
         </div>
-        <p style="margin-top:28px;font-size:14px;color:var(--stone-gray);">大會無線網路服務由 <strong style="color:var(--charcoal-warm);font-weight:600;">可立可</strong> 獨家贊助支援</p>
+        <div class="venue-transport-row" style="margin-top:28px;">
+          <span class="venue-transport-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          </span>
+          <span class="venue-transport-text"><strong>大會無線網路服務由 可立可 獨家贊助支援</strong></span>
+        </div>
       </div>
     </div>
   </div>
@@ -957,10 +976,7 @@
     <div class="partners-grid">
       <div class="partner-col">
         <div class="partner-col-label">Adviser</div>
-        <div class="partner-text">
-          數位發展部
-          <small>Ministry of Digital Affairs</small>
-        </div>
+        <img src="img/Logo_MODA.svg" alt="數位發展部 Ministry of Digital Affairs" class="partner-logo">
       </div>
       <div class="partner-col">
         <div class="partner-col-label">Organizer</div>
