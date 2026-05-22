@@ -13,8 +13,8 @@
   <title>Taiwan AI Academy Developer Day powered by Claude Code — 2026/6/5</title>
   <meta property="og:title" content="Taiwan AI Academy Developer Day powered by Claude Code" />
   <meta property="og:description" content="2026 年 6 月 5 日（五）14:00，臺北市信義區中油國光廳。台灣 AI 開發者年度盛會，由台灣人工智慧學校主辦，Anthropic 戰略合作，數位發展部指導。" />
-  <meta property="og:image" content="https://axa2026.aiacademy.tw/img/preview.png" />
-  <meta property="og:url" content="https://axa2026.aiacademy.tw/event.html" />
+  <meta property="og:image" content="https://axa2026.aiacademy.tw/img/preview2.png" />
+  <meta property="og:url" content="https://axa2026.aiacademy.tw/" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +35,7 @@
       --warm-silver: #b0aea5;
       --border-cream: #f0eee6;
       --border-warm: #e8e6dc;
+      --secondary: #3a6ea8;
     }
 
     html { scroll-behavior: smooth; }
@@ -343,6 +344,13 @@
       background: var(--warm-sand);
       color: var(--stone-gray);
       pointer-events: none;
+    }
+    .hero-cta-btn.media {
+      background: var(--near-black);
+    }
+    .hero-cta-btn.media.state-before,
+    .hero-cta-btn.media.state-ended {
+      background: var(--warm-sand);
     }
     .hero-cta-note {
       font-size: 14px;
@@ -835,6 +843,7 @@
       .about-grid { grid-template-columns: 1fr; }
       .demo-grid { grid-template-columns: 1fr; }
       .partners-grid { grid-template-columns: 1fr; gap: 24px; }
+      .partner-logo { width: 200px; height: auto; max-width: 100%; }
       .hero-right { flex-direction: column; gap: 12px; }
       .speaker-card { flex-direction: column; gap: 16px; }
       footer { padding: 24px 20px; }
@@ -924,6 +933,7 @@
 
         <div class="hero-cta-area">
           <div id="hero-cta-wrap"></div>
+          <div id="hero-media-cta-wrap"></div>
           <p class="hero-cta-note" id="hero-cta-note"></p>
         </div>
       </div>
@@ -1028,14 +1038,16 @@
 
   // ── Dynamic CTA ──
   (function () {
-    const REG_URL   = 'https://neti.cc/a30q6bw';
+    const REG_URL        = 'https://neti.cc/a30q6bw';
+    const MEDIA_REG_URL  = 'https://neti.cc/L0J4MJG';
     const openTime  = new Date('2026-05-25T12:00:00+08:00').getTime();
     const closeTime = new Date('2026-05-27T17:00:00+08:00').getTime();
     const forceOpen = new URLSearchParams(location.search).get('reg') === 'open';
 
-    const heroWrap = document.getElementById('hero-cta-wrap');
-    const heroNote = document.getElementById('hero-cta-note');
-    const navWrap  = document.getElementById('nav-cta-wrap');
+    const heroWrap      = document.getElementById('hero-cta-wrap');
+    const heroMediaWrap = document.getElementById('hero-media-cta-wrap');
+    const heroNote      = document.getElementById('hero-cta-note');
+    const navWrap       = document.getElementById('nav-cta-wrap');
 
     const PLANE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904zM6 12h16"/></svg>`;
     const ARROW_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
@@ -1046,17 +1058,20 @@
       const isEnded = !forceOpen && now >= closeTime;
 
       if (isOpen) {
-        heroWrap.innerHTML = `<a href="${REG_URL}" class="hero-cta-btn" target="_blank" rel="noopener">立即報名 Register Now ${PLANE_ICON}</a>`;
-        heroNote.textContent = '限時限量開放中 · 報名截止：5/27（三）17:00';
-        navWrap.innerHTML  = `<a href="${REG_URL}" class="nav-cta" target="_blank" rel="noopener">立即報名 ${ARROW_ICON}</a>`;
+        heroWrap.innerHTML      = `<a href="${REG_URL}" class="hero-cta-btn" target="_blank" rel="noopener">立即報名 Register Now ${PLANE_ICON}</a>`;
+        heroMediaWrap.innerHTML = `<a href="${MEDIA_REG_URL}" class="hero-cta-btn media" target="_blank" rel="noopener">媒體報名 ${PLANE_ICON}</a>`;
+        heroNote.textContent    = '限時限量開放中 · 報名截止：5/27（三）17:00';
+        navWrap.innerHTML       = `<a href="${REG_URL}" class="nav-cta" target="_blank" rel="noopener">立即報名 ${ARROW_ICON}</a>`;
       } else if (isEnded) {
-        heroWrap.innerHTML = `<span class="hero-cta-btn state-ended">報名已截止</span>`;
-        heroNote.textContent = '感謝踴躍報名，本次活動已額滿截止。';
-        navWrap.innerHTML  = `<span class="nav-cta state-ended">報名已截止</span>`;
+        heroWrap.innerHTML      = `<span class="hero-cta-btn state-ended">報名已截止</span>`;
+        heroMediaWrap.innerHTML = `<span class="hero-cta-btn media state-ended">媒體報名已截止</span>`;
+        heroNote.textContent    = '感謝踴躍報名，本次活動已額滿截止。';
+        navWrap.innerHTML       = `<span class="nav-cta state-ended">報名已截止</span>`;
       } else {
-        heroWrap.innerHTML = `<span class="hero-cta-btn state-before">即將開放報名</span>`;
-        heroNote.textContent = '報名開放時間：5/25（一）12:00 ~ 5/27（三）17:00';
-        navWrap.innerHTML  = `<span class="nav-cta state-before">即將開放報名</span>`;
+        heroWrap.innerHTML      = `<span class="hero-cta-btn state-before">即將開放報名</span>`;
+        heroMediaWrap.innerHTML = ``;
+        heroNote.textContent    = '報名開放時間：5/25（一）12:00 ~ 5/27（三）17:00';
+        navWrap.innerHTML       = `<span class="nav-cta state-before">即將開放報名</span>`;
       }
     }
 
