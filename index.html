@@ -69,7 +69,7 @@
       transform: translateY(0);
     }
     nav.scrolled { box-shadow: 0 1px 20px rgba(20,20,19,0.08); }
-    .hero-overline-logo { height: 56px; width: auto; margin-bottom: 20px; display: block; }
+    .hero-overline-logo { height: max(40px, 4vw); width: auto; margin-bottom: max(14px, 1.4vw); display: block; }
 
     .nav-inner {
       max-width: 1200px;
@@ -163,6 +163,10 @@
       padding: 72px 0 88px;
       background: var(--parchment);
     }
+    .s-hero .s-inner {
+      max-width: none;
+      padding: 0 6vw;
+    }
     .hero-grid {
       display: block;
     }
@@ -177,11 +181,11 @@
     }
     .hero-title {
       font-family: 'Inter', Arial Black, sans-serif;
-      font-size: clamp(56px, 9.5vw, 116px);
+      font-size: max(56px, 9.5vw);
       font-weight: 900;
       line-height: 1;
       letter-spacing: -0.035em;
-      margin-bottom: 28px;
+      margin-bottom: max(20px, 2vw);
       white-space: nowrap;
     }
     .hero-title-dev { color: var(--terracotta); }
@@ -190,14 +194,14 @@
     .hero-powered {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 52px;
+      gap: max(10px, 0.9vw);
+      margin-bottom: max(40px, 4.5vw);
     }
     .hero-powered-text {
-      font-size: 26px;
+      font-size: max(18px, 1.9vw);
       color: var(--stone-gray);
     }
-    .hero-powered img { height: 40px; width: auto; }
+    .hero-powered img { height: max(28px, 2.9vw); width: auto; }
 
     .hero-featuring {
       border-top: 1px solid var(--border-warm);
@@ -815,6 +819,7 @@
     }
     @media (max-width: 640px) {
       .s-inner { padding: 0 20px; }
+      .s-hero .s-inner { padding: 0 20px; }
       .nav-inner { padding: 0 20px; }
       .nav-links { display: none; }
       .s-hero { padding: 48px 0 56px; }
@@ -861,7 +866,7 @@
         </h1>
         <div class="hero-powered">
           <span class="hero-powered-text">powered by</span>
-          <img src="img/Logo_Claude_Code.svg" alt="Claude Code" style="height:40px;">
+          <img src="img/Logo_Claude_Code.svg" alt="Claude Code">
         </div>
 
         <div class="hero-featuring">
