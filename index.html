@@ -654,9 +654,9 @@
     }
 
     /* ── Venue ── */
-    .s-venue { padding: 96px 0; background: var(--near-black); }
+    .s-venue { padding: 96px 0; background: var(--ivory); }
     .s-venue .s-eyebrow { color: var(--stone-gray); }
-    .s-venue .s-title { color: var(--ivory); }
+    .s-venue .s-title { color: var(--near-black); }
     .venue-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -666,7 +666,7 @@
     .venue-map {
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--border-warm);
       height: 360px;
     }
     .venue-map iframe {
@@ -678,7 +678,7 @@
     .venue-name {
       font-size: 24px;
       font-weight: 800;
-      color: var(--ivory);
+      color: var(--near-black);
       margin-bottom: 6px;
     }
     .venue-addr {
@@ -701,11 +701,11 @@
       margin-bottom: 14px;
     }
     .venue-transport-icon { flex-shrink: 0; color: var(--terracotta); margin-top: 2px; display: flex; }
-    .venue-transport-text { font-size: 15px; color: var(--warm-silver); line-height: 1.6; }
+    .venue-transport-text { font-size: 15px; color: var(--charcoal-warm); line-height: 1.6; }
     .wifi-note {
       margin-top: 28px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--parchment);
+      border: 1px solid var(--border-warm);
       border-radius: 8px;
       padding: 14px 18px;
       display: flex;
@@ -713,76 +713,55 @@
       align-items: flex-start;
     }
     .wifi-note svg { flex-shrink: 0; color: var(--terracotta); margin-top: 2px; }
-    .wifi-note p { font-size: 14px; color: var(--warm-silver); line-height: 1.6; }
-    .wifi-note strong { color: var(--ivory); }
+    .wifi-note p { font-size: 14px; color: var(--olive-gray); line-height: 1.6; }
+    .wifi-note strong { color: var(--near-black); }
 
     /* ── Partners ── */
     .s-partners {
-      padding: 64px 0;
+      padding: 80px 0;
       background: var(--ivory);
       border-top: 1px solid var(--border-cream);
-    }
-    .partners-eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--warm-silver);
-      text-align: center;
-      margin-bottom: 36px;
     }
     .partners-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 32px;
+      gap: 48px;
       align-items: center;
     }
     .partner-col { text-align: center; }
     .partner-col-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--warm-silver);
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
-    .partner-logo { height: 36px; width: auto; max-width: 180px; }
+    .partner-logo { height: 52px; width: auto; max-width: 240px; }
     .partner-text {
-      font-size: 17px;
+      font-size: 22px;
       font-weight: 700;
       color: var(--charcoal-warm);
     }
     .partner-text small {
       display: block;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 400;
       color: var(--stone-gray);
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     /* ── Footer ── */
     footer {
-      padding: 36px 32px;
+      padding: 28px 32px;
       background: var(--parchment);
       border-top: 1px solid var(--border-cream);
     }
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+      text-align: center;
     }
-    .footer-logos {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      height: 24px;
-      text-decoration: none;
-    }
-    .footer-logos img { height: 100%; width: auto; }
     .footer-text { font-size: 14px; color: var(--stone-gray); }
 
     /* ── Keyframes ── */
@@ -829,8 +808,7 @@
       .partners-grid { grid-template-columns: 1fr; gap: 24px; }
       .hero-right { flex-direction: column; gap: 12px; }
       .speaker-card { flex-direction: column; gap: 16px; }
-      footer { padding: 28px 20px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
+      footer { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -844,7 +822,6 @@
     </a>
     <ul class="nav-links">
       <li><a href="#demo">技術展示</a></li>
-      <li><a href="#agenda">大會議程</a></li>
       <li><a href="#venue">交通資訊</a></li>
     </ul>
     <div id="nav-cta-wrap"></div>
@@ -943,85 +920,6 @@
   </div>
 </section>
 
-<!-- ── Agenda ── -->
-<section id="agenda" class="s-agenda">
-  <div class="s-inner">
-    <p class="s-eyebrow">Event Agenda</p>
-    <h2 class="s-title">大會議程</h2>
-    <div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">13:30 – 14:00</div>
-        <div class="timeline-name">Registration &amp; Networking Reception</div>
-        <div class="timeline-detail">報到、領取識別證、茶點輕食與交流</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">14:00 – 14:05</div>
-        <div class="timeline-name">Opening Video</div>
-        <div class="timeline-detail">Anthropic 品牌與產品官方開場影片</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">14:05 – 14:10</div>
-        <div class="timeline-name">Welcome Address</div>
-        <div class="timeline-detail"><strong>Dr. James C. Liao</strong> — 廖俊智院長，中央研究院院長 ／ AIA 董事長</div>
-      </div>
-      <div class="timeline-item hl">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">14:10 – 14:30</div>
-        <div class="timeline-name">Opening Remarks &amp; MOU Signing Ceremony</div>
-        <div class="timeline-detail">
-          <strong>Dr. Ling-Jyh Chen</strong> (AIA) ｜ <strong>Tarun Chhabra</strong> (Anthropic) ｜ <strong>Deputy Minister Isabel Hou</strong> (MODA)<br>
-          <span style="color:var(--warm-silver);">14:25 MOU 簽署儀式暨官方合影</span>
-        </div>
-        <span class="timeline-badge">MOU Signing</span>
-      </div>
-      <div class="timeline-item hl">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">14:30 – 15:15</div>
-        <div class="timeline-name">Fireside Chat: Claude Code, MCP, and What's Next</div>
-        <div class="timeline-detail">
-          <strong>Ben Mann</strong> — Anthropic 共同創辦人（主講）<br>
-          主持：Deputy Minister Isabel Hou<br>
-          35 分鐘深度對談 ＋ 10 分鐘現場 Q&amp;A
-        </div>
-        <span class="timeline-badge">Fireside Chat</span>
-      </div>
-      <div class="timeline-item hl">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">15:15 – 15:50</div>
-        <div class="timeline-name">Product &amp; Demo Showcase</div>
-        <div class="timeline-detail">台灣兩組在地團隊實機展示 Claude Code 與 MCP 應用，每場 15 分鐘</div>
-        <span class="timeline-badge">Demo Showcase</span>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">15:50 – 16:10</div>
-        <div class="timeline-name">Networking Break</div>
-        <div class="timeline-detail">茶敘交流</div>
-      </div>
-      <div class="timeline-item hl">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">16:10 – 16:55</div>
-        <div class="timeline-name">Executive Panel: AI, Cybersecurity &amp; the New Geopolitical Frontier</div>
-        <div class="timeline-detail">
-          主持：<strong>Prof. Jane Yung-jen Hsu</strong> — AI CoE 計畫辦公室主任<br>
-          與談：<strong>Tarun Chhabra</strong>、<strong>Dr. Ling-Jyh Chen</strong>、<strong>Deputy Minister Chia-Lin Yang</strong><br>
-          35 分鐘討論 ＋ 10 分鐘現場 Q&amp;A
-        </div>
-        <span class="timeline-badge">Executive Panel</span>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">16:55 – 17:00</div>
-        <div class="timeline-name">Closing Remarks</div>
-        <div class="timeline-detail"><strong>Dr. Ling-Jyh Chen</strong> — AIA 執行長</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── Venue ── -->
 <section id="venue" class="s-venue">
   <div class="s-inner">
@@ -1047,7 +945,7 @@
           </span>
           <span class="venue-transport-text">建議搭乘大眾運輸，現場停車位有限</span>
         </div>
-        <p style="margin-top:28px;font-size:14px;color:var(--stone-gray);">大會無線網路服務由 <strong style="color:var(--warm-silver);font-weight:600;">可立可</strong> 獨家贊助支援</p>
+        <p style="margin-top:28px;font-size:14px;color:var(--stone-gray);">大會無線網路服務由 <strong style="color:var(--charcoal-warm);font-weight:600;">可立可</strong> 獨家贊助支援</p>
       </div>
     </div>
   </div>
@@ -1056,7 +954,6 @@
 <!-- ── Partners ── -->
 <section id="partners" class="s-partners">
   <div class="s-inner">
-    <p class="partners-eyebrow">指導 · 主辦 · 合作夥伴</p>
     <div class="partners-grid">
       <div class="partner-col">
         <div class="partner-col-label">Adviser</div>
@@ -1071,7 +968,7 @@
       </div>
       <div class="partner-col">
         <div class="partner-col-label">Partner</div>
-        <img src="img/" alt="Anthropic" class="partner-logo">
+        <img src="img/Logos_Anthropic.svg" alt="Anthropic" class="partner-logo">
       </div>
     </div>
   </div>
@@ -1081,10 +978,6 @@
 
 <footer>
   <div class="footer-inner">
-    <a href="/" class="footer-logos">
-      <img src="img/AIA-logo-black.svg" alt="Taiwan AI Academy">
-      <img src="img/Logo_Claude_Code.svg" alt="Claude Code">
-    </a>
     <p class="footer-text">© 2026 台灣人工智慧學校 All rights reserved.</p>
   </div>
 </footer>
