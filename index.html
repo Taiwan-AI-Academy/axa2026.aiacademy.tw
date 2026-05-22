@@ -11,9 +11,9 @@
     gtag('js', new Date());
     gtag('config', 'G-MK7V58ELYN');
   </script>
-  <title>AIA x Claude Code: Showcase 決選觀眾報名</title>
-  <meta property="og:title" content="5/18 Claude Code Showcase 決選 — 觀眾報名開放" />
-  <meta property="og:description" content="頂尖團隊現場實戰 Demo，現場選出 2 組登上 6/5 Claude Code Developer Summit 大舞台。5/18（一）18:00，政大公企中心，免費入場，名額有限。" />
+  <title>Taiwan AI Academy Developer Day powered by Claude Code — 報名</title>
+  <meta property="og:title" content="Taiwan AI Academy Developer Day powered by Claude Code" />
+  <meta property="og:description" content="2026 年 6 月 5 日（五）13:30，臺北市信義區中油國光廳。台灣 AI 開發者年度盛會，由台灣人工智慧學校 (AIA) 主辦，Anthropic 戰略合作，數位發展部 (MODA) 指導。" />
   <meta property="og:image" content="https://axa2026.aiacademy.tw/img/preview.png" />
   <meta property="og:url" content="https://axa2026.aiacademy.tw" />
   <meta property="og:type" content="website" />
@@ -112,7 +112,7 @@
     }
     .hero-title {
       font-family: 'Inter', Arial Black, sans-serif;
-      font-size: clamp(36px, 9vw, 128px);
+      font-size: clamp(28px, 4.5vw, 64px);
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: -0.02em;
@@ -437,7 +437,7 @@
         padding: 48px 20px 40px;
       }
       .hero-title {
-        font-size: clamp(48px, 14vw, 80px);
+        font-size: clamp(24px, 7.5vw, 48px);
       }
       .hero-event-blocks { grid-template-columns: 1fr; }
       .event-block-content { padding: 24px 20px; }
@@ -458,6 +458,12 @@
           <img src="img/AIA-logo-black.svg" alt="AI Academy" />
           <img src="img/Logo_Claude_Code.svg" alt="Claude" />
         </a>
+      <div id="nav-reg-wrap">
+        <a href="https://neti.cc/a30q6bw" class="nav-cta" target="_blank" rel="noopener">
+          立即報名
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904zM6 12h16"/></svg>
+        </a>
+      </div>
     </div>
   </nav>
   <div class="page-body">
@@ -469,13 +475,15 @@
       <h1 class="hero-title">
         <span id="typewriter-callfor"></span><br>
         <span class="accent typewriter-wrap" id="typewriter-show"></span><span id="typewriter-cases" style="color:rgb(141 141 141)"></span><br>
-        <span style="white-space:nowrap;display:block;margin-top:0.75em;margin-bottom:0.75em;font-family:'Noto Sans TC',Arial,sans-serif;"><span class="accent typewriter-wrap" id="typewriter-night1"></span><span id="typewriter-night2" style="color:rgb(141 141 141)"></span><span class="cursor" id="cursor"></span></span>
+        <span style="display:block;margin-top:0.75em;margin-bottom:0.75em;"><span id="typewriter-night1" style="color:rgb(141 141 141)"></span><span class="accent typewriter-wrap" id="typewriter-night2"></span><span class="cursor" id="cursor"></span></span>
       </h1>
       <div class="hero-cta-wrap">
-        <a href="https://forms.gle/snQo717Seo6L18Xi6" class="hero-cta-btn" target="_blank" rel="noopener">
-          立即報名
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904zM6 12h16"/></svg>
-        </a>
+        <div id="reg-btn-wrap">
+          <a href="https://neti.cc/a30q6bw" class="hero-cta-btn" target="_blank" rel="noopener">
+            立即報名
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex-shrink:0"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904zM6 12h16"/></svg>
+          </a>
+        </div>
         <div class="hero-countdown" id="hero-countdown">
           <div class="hero-countdown-label" id="cd-label">活動倒數</div>
           <div class="hero-countdown-units" id="cd-units">
@@ -496,51 +504,40 @@
               <span class="hero-countdown-unit-label">秒</span>
             </div>
           </div>
-          <div class="hero-countdown-deadline">活動日期：2026 年 5 月 18 日（一）18:00</div>
+          <div class="hero-countdown-deadline">活動日期：2026 年 6 月 5 日（五）13:30</div>
         </div>
       </div>
-      <div class="hero-event-blocks">
+      <div class="hero-event-blocks" style="grid-template-columns: 1fr;">
         <div class="event-block">
           <div class="event-block-bar"></div>
           <div class="event-block-content">
-            <p class="event-block-eyebrow">AIA x Claude Code</p>
-            <h3 class="event-block-title">Showcase 決選</h3>
+            <p class="event-block-eyebrow">Taiwan AI Academy Developer Day</p>
+            <h3 class="event-block-title">powered by Claude Code</h3>
             <div class="event-block-meta">
               <div class="event-block-row">
                 <span class="event-block-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-                <span class="event-block-value">5/18（一）18:00 — 21:00（17:30 入場）</span>
+                <span class="event-block-value">2026 年 6 月 5 日（五）13:30 – 17:00</span>
               </div>
               <div class="event-block-row">
                 <span class="event-block-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
-                <span class="event-block-value">政大公企 A431 階梯型會議教室</span>
+                <span class="event-block-value">臺北市信義區中油國光廳（臺北市松仁路3號）</span>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="event-block">
-          <div class="event-block-bar"></div>
-          <div class="event-block-content">
-            <p class="event-block-eyebrow">AIA x Claude Code</p>
-            <h3 class="event-block-title">Developer Summit</h3>
-            <div class="event-block-meta">
               <div class="event-block-row">
-                <span class="event-block-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-                <span class="event-block-value">6/5（五）大型年會主舞台</span>
+                <span class="event-block-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+                <span class="event-block-value">主辦：台灣人工智慧學校 (AIA)</span>
               </div>
               <div class="event-block-row">
                 <span class="event-block-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-                <span class="event-block-value">決選 2 組直接登台，面對 800 位觀眾</span>
+                <span class="event-block-value">戰略合作夥伴與贊助：Anthropic &nbsp;｜&nbsp; 指導：數位發展部 (MODA)</span>
               </div>
             </div>
           </div>
         </div>
       </div>
       <ul class="hero-bullets">
-        <li><img class="bullet-icon" src="img/logo-black.svg" alt=""><span>初選入圍團隊，現場實戰展示台灣最強 <span class="hl-black">Claude Code</span> 應用案例。</span></li>
-        <li><img class="bullet-icon" src="img/icon-plug-zap.svg" alt=""><span>現場選出 <span class="hl-orange">2 組</span>，直接登上 6/5 <span class="hl-black">Claude Code Developer Summit</span> 大舞台。</span></li>
+        <li><img class="bullet-icon" src="img/logo-black.svg" alt=""><span>台灣 AI 開發者年度盛會，探索 <span class="hl-black">AI 驅動開發</span>的最前線實踐。</span></li>
+        <li><img class="bullet-icon" src="img/Logo_Claude_Spark.svg" alt=""><span>深入了解 <span class="hl-black">Claude Code</span> 如何重新定義開發者的工作方式與效率。</span></li>
         <li><svg class="bullet-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#87867f" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>與台灣頂尖 AI 開發者<span class="hl-orange">面對面交流</span>，一起碰撞下一個好點子。</span></li>
-        <li><img class="bullet-icon" src="img/Logo_Claude_Spark.svg" alt=""><span><span class="hl-orange">免費入場</span>，名額有限，立即報名搶位。</span></li>
       </ul>
     </div>
   </section>
@@ -591,20 +588,17 @@
       night2El.textContent = '';
       cursor.style.display = 'inline-block';
       callforEl.after(cursor);
-      typeStr(callforEl, 'Demo', 90, () => {
+      typeStr(callforEl, 'Taiwan AI Academy', 55, () => {
         setTimeout(() => {
           showEl.after(cursor);
-          typeStr(showEl, 'Show', 90, () => {
-            casesEl.after(cursor);
-            typeStr(casesEl, 'cases', 90, () => {
-              setTimeout(() => {
-                night1El.after(cursor);
-                typeStr(night1El, '决選', 90, () => {
-                  night2El.after(cursor);
-                  typeStr(night2El, '之夜', 90, null);
-                });
-              }, 120);
-            });
+          typeStr(showEl, 'Developer Day', 55, () => {
+            setTimeout(() => {
+              night1El.after(cursor);
+              typeStr(night1El, 'powered by ', 55, () => {
+                night2El.after(cursor);
+                typeStr(night2El, 'Claude Code', 55, null);
+              });
+            }, 120);
           });
         }, 120);
       });
@@ -618,7 +612,7 @@
 
     // ── Countdown ────────────────────────────────────────
     (function setupCountdown() {
-      const target = new Date('2026-05-18T18:00:00+08:00').getTime();
+      const target = new Date('2026-06-05T13:30:00+08:00').getTime();
       const wrap = document.getElementById('hero-countdown');
       const labelEl = document.getElementById('cd-label');
 
@@ -672,6 +666,23 @@
 
       tick();
       intervalId = setInterval(tick, 1000);
+    })();
+
+    // ── Registration button visibility ───────────────────
+    (function setupRegVisibility() {
+      const open  = new Date('2026-05-25T12:00:00+08:00').getTime();
+      const close = new Date('2026-05-27T17:00:00+08:00').getTime();
+      const heroWrap = document.getElementById('reg-btn-wrap');
+      const navWrap  = document.getElementById('nav-reg-wrap');
+      const forceShow = new URLSearchParams(location.search).get('reg') === 'open';
+      function applyVisibility() {
+        const now = Date.now();
+        const visible = forceShow || (now >= open && now < close);
+        if (heroWrap) heroWrap.style.display = visible ? '' : 'none';
+        if (navWrap)  navWrap.style.display  = visible ? '' : 'none';
+      }
+      applyVisibility();
+      setInterval(applyVisibility, 30000);
     })();
   </script>
   </div><!-- /.page-body -->
