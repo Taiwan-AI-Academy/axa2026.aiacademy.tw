@@ -689,9 +689,9 @@
     }
 
     /* ── Venue ── */
-    .s-venue { padding: 96px 0; background: var(--ivory); }
+    .s-venue { padding: 96px 0; background: var(--near-black); }
     .s-venue .s-eyebrow { color: var(--stone-gray); }
-    .s-venue .s-title { color: var(--near-black); }
+    .s-venue .s-title { color: var(--ivory); }
     .venue-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -701,7 +701,7 @@
     .venue-map {
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid var(--border-warm);
+      border: 1px solid rgba(255,255,255,0.1);
       height: 360px;
     }
     .venue-map iframe {
@@ -713,7 +713,7 @@
     .venue-name {
       font-size: 24px;
       font-weight: 800;
-      color: var(--near-black);
+      color: var(--ivory);
       margin-bottom: 6px;
     }
     .venue-addr {
@@ -736,7 +736,7 @@
       margin-bottom: 14px;
     }
     .venue-transport-icon { flex-shrink: 0; color: var(--terracotta); margin-top: 2px; display: flex; }
-    .venue-transport-text { font-size: 15px; color: var(--charcoal-warm); line-height: 1.6; }
+    .venue-transport-text { font-size: 15px; color: var(--warm-silver); line-height: 1.6; }
     .wifi-note {
       margin-top: 28px;
       background: var(--parchment);
@@ -860,8 +860,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="#demo">案例展示</a></li>
+      <li><a href="#agenda">議程</a></li>
       <li><a href="#venue">交通資訊</a></li>
-      <li><span class="nav-coming-soon">議程即將開放</span></li>
     </ul>
     <div id="nav-cta-wrap"></div>
   </div>
@@ -957,6 +957,89 @@
         <div class="demo-num">Demo</div>
         <div class="demo-presenter">黃亮勳</div>
         <div class="demo-talk">不做 Agent，做 Agent 的基石：<br>Twinkle Hub</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Agenda ── -->
+<section id="agenda" class="s-agenda">
+  <div class="s-inner">
+    <p class="s-eyebrow">Event Agenda</p>
+    <h2 class="s-title">大會議程</h2>
+    <div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">13:00 – 14:00</div>
+        <div class="timeline-name">Registration &amp; Networking Reception</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">14:00 – 14:05</div>
+        <div class="timeline-name">Opening Video by Anthropic</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">14:05 – 14:10</div>
+        <div class="timeline-name">Welcome Address</div>
+        <div class="timeline-detail"><strong>Dr. James C. Liao (廖俊智)</strong> — President, Academia Sinica ／ Chairman, Taiwan AI Academy</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">14:10 – 14:20</div>
+        <div class="timeline-name">Opening Remarks</div>
+        <div class="timeline-detail">
+          <strong>Dr. Yi-Jing Lin (林宜敬)</strong> — Minister, Ministry of Digital Affairs<br>
+          <strong>Dr. Ling-Jyh Chen (陳伶志)</strong> — CEO, Taiwan AI Academy<br>
+          <strong>Ben Mann</strong> — Co-Founder, Anthropic
+        </div>
+      </div>
+      <div class="timeline-item hl">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">14:20 – 15:05</div>
+        <div class="timeline-name">Fireside Chat: At the Frontier: Building, Trust, and the Acceleration Ahead</div>
+        <div class="timeline-detail">
+          <strong>Ben Mann</strong> — Co-Founder, Anthropic<br>
+          <strong>Isabel Hou (侯宜秀)</strong> — Deputy Minister, Ministry of Digital Affairs
+        </div>
+        <span class="timeline-badge">Fireside Chat</span>
+      </div>
+      <div class="timeline-item hl">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">15:05 – 15:20</div>
+        <div class="timeline-name">Demo Showcases (1)</div>
+        <div class="timeline-detail"><strong>Chen-Long Kao (高見龍)</strong></div>
+        <span class="timeline-badge">Demo Showcase</span>
+      </div>
+      <div class="timeline-item hl">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">15:20 – 16:05</div>
+        <div class="timeline-name">Panel: AI, Cybersecurity &amp; the New Geopolitical Frontier</div>
+        <div class="timeline-detail">
+          Moderator: <strong>Dr. Ling-Jyh Chen (陳伶志)</strong> — CEO, Taiwan AI Academy<br>
+          Panelists: <strong>Tarun Chhabra</strong> — Head of National Security Policy, Anthropic<br>
+          <strong>Prof. Jane Yung-jen Hsu (許永真)</strong> — Chair, AI CoE Program Office<br>
+          <strong>Dr. Chia-Lin Yang (楊佳玲)</strong> — Deputy Minister, Ministry of Digital Affairs
+        </div>
+        <span class="timeline-badge">Executive Panel</span>
+      </div>
+      <div class="timeline-item hl">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">16:05 – 16:20</div>
+        <div class="timeline-name">Demo Showcases (2)</div>
+        <div class="timeline-detail"><strong>Liang-Hsun Huang (黃亮勳)</strong></div>
+        <span class="timeline-badge">Demo Showcase</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">16:20 – 16:25</div>
+        <div class="timeline-name">Closing Remarks</div>
+        <div class="timeline-detail"><strong>Dr. Ling-Jyh Chen (陳伶志)</strong> — CEO, Taiwan AI Academy</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">16:25 – 16:50</div>
+        <div class="timeline-name">Tea Time &amp; Networking</div>
       </div>
     </div>
   </div>
