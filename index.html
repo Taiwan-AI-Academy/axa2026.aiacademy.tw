@@ -772,7 +772,14 @@
       color: var(--warm-silver);
       margin-bottom: 20px;
     }
-    .partner-logo { height: 52px; width: auto; max-width: 300px; }
+    .partner-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+    }
+    .partner-logo { height: 100%; width: auto; max-width: 300px; object-fit: contain; }
+    .partner-logo--adi { max-width: none; }
     .partner-text {
       font-size: 22px;
       font-weight: 700;
@@ -843,7 +850,8 @@
       .about-grid { grid-template-columns: 1fr; }
       .demo-grid { grid-template-columns: 1fr; }
       .partners-grid { grid-template-columns: 1fr; gap: 24px; }
-      .partner-logo { width: 200px; height: auto; max-width: 100%; }
+      .partner-logo-wrap { height: 44px; }
+      .partner-logo { height: 100%; width: auto; max-width: 200px; }
       .hero-right { flex-direction: column; gap: 12px; }
       .speaker-card { flex-direction: column; gap: 16px; }
       footer { padding: 24px 20px; }
@@ -1004,15 +1012,15 @@
     <div class="partners-grid">
       <div class="partner-col">
         <div class="partner-col-label">Adviser</div>
-        <img src="img/Logo_MODA.svg" alt="數位發展部 Ministry of Digital Affairs" class="partner-logo">
+        <div class="partner-logo-wrap"><img src="img/logo-adi.svg" alt="ADI" class="partner-logo partner-logo--adi"></div>
       </div>
       <div class="partner-col">
         <div class="partner-col-label">Organizer</div>
-        <img src="img/AIA-logo-black.svg" alt="Taiwan AI Academy" class="partner-logo">
+        <div class="partner-logo-wrap"><img src="img/AIA-logo-black.svg" alt="Taiwan AI Academy" class="partner-logo"></div>
       </div>
       <div class="partner-col">
         <div class="partner-col-label">Partner</div>
-        <img src="img/Logos_Anthropic.svg" alt="Anthropic" class="partner-logo">
+        <div class="partner-logo-wrap"><img src="img/Logos_Anthropic.svg" alt="Anthropic" class="partner-logo"></div>
       </div>
     </div>
   </div>
