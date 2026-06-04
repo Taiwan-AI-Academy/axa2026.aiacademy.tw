@@ -148,6 +148,11 @@
       color: var(--stone-gray);
       pointer-events: none;
     }
+    .nav-cta.news-link {
+      pointer-events: auto;
+      text-decoration: none;
+      font-size: 13px;
+    }
 
     /* ── Shared section helpers ── */
     .s-inner {
@@ -344,6 +349,19 @@
       background: var(--warm-sand);
       color: var(--stone-gray);
       pointer-events: none;
+    }
+    .hero-cta-btn.news-link {
+      background: var(--terracotta);
+      color: #fff;
+      pointer-events: auto;
+      font-size: clamp(14px, 1.5vw, 16px);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .hero-cta-btn.news-link:hover {
+      background: var(--terracotta);
+      opacity: 1;
+      transform: translateY(-1px);
     }
     .hero-cta-btn.media {
       background: var(--near-black);
@@ -1159,9 +1177,9 @@
         heroNote.textContent    = '限時限量開放中 · 報名截止：5/27（三）17:00';
         navWrap.innerHTML       = `<a href="${REG_URL}" class="nav-cta" target="_blank" rel="noopener">立即報名 ${ARROW_ICON}</a>`;
       } else if (isEnded) {
-        heroWrap.innerHTML      = `<span class="hero-cta-btn state-ended">報名已截止</span>`;
-        heroNote.textContent    = '感謝踴躍報名，本次活動已截止。';
-        navWrap.innerHTML       = `<span class="nav-cta state-ended">報名已截止</span>`;
+        heroWrap.innerHTML      = `<a href="https://aiacademy.tw/news-anthropic-co-founder-taiwan-visit/" class="hero-cta-btn news-link" target="_blank" rel="noopener">台灣人工智慧學校新聞稿</a>`;
+        heroNote.textContent    = '';
+        navWrap.innerHTML       = `<a href="https://aiacademy.tw/news-anthropic-co-founder-taiwan-visit/" class="nav-cta news-link" target="_blank" rel="noopener">新聞稿</a>`;
       } else {
         heroWrap.innerHTML      = `<span class="hero-cta-btn state-before">即將開放報名</span>`;
         heroMediaWrap.innerHTML = ``;
